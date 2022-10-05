@@ -14,8 +14,7 @@ export const FormContainer = styled.form`
   min-width: 500px;
 
   @media screen and (max-width: 800px) {
-    width: auto;
-    height: unset;
+    min-width: 300px;
   }
 `;
 
