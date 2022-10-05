@@ -40,7 +40,7 @@ export const Body = styled.div`
 
 export const DirectoryItemContainer = styled.div`
   min-width: 30%;
-  height: 240px;
+  height: ${(size) => (size ? '380px' : '240px')};
   flex: 1 1 auto;
   display: flex;
   align-items: center;

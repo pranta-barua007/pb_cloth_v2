@@ -7,6 +7,7 @@ import { DirectoryContainer } from './directory.styles';
 export type DirectoryCategory = {
   id: Key;
   title: string;
+  size?: string;
   imageUrl: string;
   route: string;
 };
@@ -33,12 +34,14 @@ const categories: DirectoryCategory[] = [
   {
     id: 4,
     title: 'womens',
+    size: 'large',
     imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
     route: 'shop/womens',
   },
   {
     id: 5,
     title: 'mens',
+    size: 'large',
     imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
     route: 'shop/mens',
   },
