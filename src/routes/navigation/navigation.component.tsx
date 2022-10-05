@@ -21,7 +21,7 @@ const Navigation = () => {
 
   useEffect(() => {
     currentUser?.email && navigate('/');
-  }, [currentUser, navigate]);
+  });
 
   const signOutUser = () => dispatch(signOutStart());
 

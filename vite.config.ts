@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import react from '@vitejs/plugin-react'
 
 import { VitePWA } from 'vite-plugin-pwa';
@@ -22,6 +22,7 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html}', '**/*.{svg,png,jpg,gif}'],
       },
     }),
+    splitVendorChunkPlugin(),
   ],
   resolve: {
     alias: {
