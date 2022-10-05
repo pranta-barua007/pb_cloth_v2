@@ -16,7 +16,7 @@ export default defineConfig({
       // switch to "true" to enable sw on development
       devOptions: {
         //@ts-ignore
-        enabled: true, 
+        enabled: process.env.NODE_ENV !== 'production', 
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html}', '**/*.{svg,png,jpg,gif}'],
