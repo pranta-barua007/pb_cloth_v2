@@ -17,6 +17,8 @@ export const ImageContainer = styled.div`
   img {
     width: 100%;
     height: 100%;
+    border: 0px transparent;
+    border-radius: 8px;
   }
 `;
 

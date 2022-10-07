@@ -15,16 +15,17 @@ export const BaseButton = styled.button`
   text-transform: uppercase;
   font-family: 'Open Sans Condensed';
   font-weight: bolder;
-  border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 2px transparent;
+  border-radius: 50px;
 
   &:hover {
     background-color: white;
     color: black;
-    border: 1px solid black;
+    border: 2px solid black;
   }
 `;
 
