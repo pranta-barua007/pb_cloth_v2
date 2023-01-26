@@ -31,6 +31,11 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html}', '**/*.{svg,png,jpg,gif}'],
+        globIgnores: [
+          "**/node_modules/**/*",
+          "sw.js",
+          "workbox-*.js"
+        ]
       },
     }),
     viteCompression({

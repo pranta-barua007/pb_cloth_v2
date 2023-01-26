@@ -1,0 +1,26 @@
+// import { InputHTMLAttributes, FC } from 'react';
+
+// import { FormInputLabel, Input, Group } from './form-input.styles';
+
+// export type FormInputProps = { label: string, errorMessage?: string | undefined } & InputHTMLAttributes<HTMLInputElement>;
+
+// const FormInput: FC<FormInputProps> = ({ label, errorMessage,  ...otherProps }) => {
+//   return (
+//     <Group>
+//       <Input {...otherProps} />
+//       {label && (
+//         <FormInputLabel
+//           shrink={Boolean(
+//             otherProps.value &&
+//               typeof otherProps.value === 'string' &&
+//               otherProps.value.length
+//           )}
+//         >
+//           { errorMessage ? errorMessage : label}
+//         </FormInputLabel>
+//       )}
+//     </Group>
+//   );
+// };
+
+// export default FormInput;

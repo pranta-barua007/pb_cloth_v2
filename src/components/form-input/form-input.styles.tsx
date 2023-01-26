@@ -9,8 +9,13 @@ const shrinkLabelStyles = css`
   color: ${mainColor};
 `;
 
+const errorLabelStyles = css`
+  color: red;
+`;
+
 type FormInputLabelProps = {
   shrink?: boolean;
+  error?: boolean;
 };
 
 export const FormInputLabel = styled.label<FormInputLabelProps>`
@@ -23,6 +28,7 @@ export const FormInputLabel = styled.label<FormInputLabelProps>`
   top: 10px;
   transition: 300ms ease all;
   ${({ shrink }) => shrink && shrinkLabelStyles};
+  ${({ error }) => error && errorLabelStyles};
 `;
 
 export const Input = styled.input`

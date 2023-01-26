@@ -20,7 +20,8 @@
       "vite-plugin-pwa/client",
     ],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@component/*": ["src/component/*"]
     }
   },
   "include": ["src"],
