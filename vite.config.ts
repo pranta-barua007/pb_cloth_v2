@@ -1,12 +1,14 @@
 import * as path from 'path';
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react-swc';
 
 import { VitePWA } from 'vite-plugin-pwa';
 import viteCompression from 'vite-plugin-compression';
+import federation from "@originjs/vite-plugin-federation";
 
 import manifest from './manifest.json';
 import { dependencies } from './package.json';
+
 
 function renderChunks(deps: Record<string, string>) {
   let chunks = {};
@@ -40,7 +42,20 @@ export default defineConfig({
     }),
     viteCompression({
       algorithm: 'brotliCompress',
-    })
+    }),
+    federation({
+      name: "app",
+      remotes: [
+        {
+          remoteApp: {
+            external: 'https://pbcustom.netlify.app/assets/remoteEntry.js',
+            from: 'vite',
+            externalType: 'url'
+          },
+        },
+      ],
+      shared: ["react", "react-dom", "@react-three/drei", "@react-three/fiber"],
+    }),
   ],
   resolve: {
     alias: {
@@ -48,14 +63,18 @@ export default defineConfig({
     },
   },
   build: {
-    sourcemap: false,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-router-dom', 'react-dom'],
-          ...renderChunks(dependencies),
-        },
-      },
-    },
+    //sourcemap: false,
+    //modulePreload: false,
+    target: 'esnext',
+    minify: false,
+    cssCodeSplit: false,
+    // rollupOptions: {
+    //   output: {
+    //     manualChunks: {
+    //       vendor: ['react', 'react-router-dom', 'react-dom', 'firebase'],
+    //       ...renderChunks(dependencies),
+    //     },
+    //   },
+    // },
   },
 })
