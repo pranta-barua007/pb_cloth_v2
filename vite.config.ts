@@ -54,7 +54,7 @@ export default defineConfig({
           },
         },
       ],
-      shared: ["react", "react-dom", "three", "@react-three/drei", "@react-three/fiber"],
+      shared: ["react", "react-dom", "@react-three/drei", "@react-three/fiber"],
     }),
   ],
   resolve: {
