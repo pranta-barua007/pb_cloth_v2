@@ -58,12 +58,6 @@ export default defineConfig({
       shared: ["react", "react-dom", "@react-three/drei", "@react-three/fiber"],
     }),
   ],
-  server:{
-    https: false,
-    host: "192.168.56.1",
-    port: 5100,
-  },
-  cacheDir: "node_modules/.cacheDir",
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
