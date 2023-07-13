@@ -7,17 +7,17 @@ import viteCompression from 'vite-plugin-compression';
 import federation from "@originjs/vite-plugin-federation";
 
 import manifest from './manifest.json';
-import { dependencies } from './package.json';
+// import { dependencies } from './package.json';
 
 
-function renderChunks(deps: Record<string, string>) {
-  let chunks = {};
-  Object.keys(deps).forEach((key) => {
-    if (['react', 'react-router-dom', 'react-dom', 'firebase'].includes(key)) return;
-    chunks[key] = [key];
-  });
-  return chunks;
-}
+// function renderChunks(deps: Record<string, string>) {
+//   let chunks = {};
+//   Object.keys(deps).forEach((key) => {
+//     if (['react', 'react-router-dom', 'react-dom', 'firebase'].includes(key)) return;
+//     chunks[key] = [key];
+//   });
+//   return chunks;
+// }
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -32,6 +32,7 @@ export default defineConfig({
         enabled: process.env.NODE_ENV !== 'production', 
       },
       workbox: {
+        maximumFileSizeToCacheInBytes: 3000000,
         globPatterns: ['**/*.{js,css,html}', '**/*.{svg,png,jpg,gif}'],
         globIgnores: [
           "**/node_modules/**/*",
@@ -76,5 +77,5 @@ export default defineConfig({
     //     },
     //   },
     // },
-  },
+  }
 })
