@@ -33,7 +33,7 @@ const Navigation = () => {
         </LogoContainer>
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
-          <NavLink to="/customize">CUSTOM</NavLink>
+          <NavLink to="/customize">CUSTOMIZE</NavLink>
           {currentUser ? (
             <NavLink as="span" onClick={signOutUser}>
               SIGN OUT
