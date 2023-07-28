@@ -1,3 +1,6 @@
+/// <reference types="vitest" />
+
+import macrosPlugin from "vite-plugin-babel-macros"
 import * as path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
@@ -57,6 +60,7 @@ export default defineConfig({
       ],
       shared: ["react", "react-dom", "@react-three/drei", "@react-three/fiber"],
     }),
+    macrosPlugin()
   ],
   resolve: {
     alias: {
@@ -77,5 +81,11 @@ export default defineConfig({
     //     },
     //   },
     // },
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.ts',
+    css: true
   }
 })
