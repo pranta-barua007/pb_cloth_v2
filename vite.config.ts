@@ -1,17 +1,16 @@
 /// <reference types="vitest" />
 
-import macrosPlugin from "vite-plugin-babel-macros"
 import * as path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 
+import macrosPlugin from 'vite-plugin-babel-macros';
 import { VitePWA } from 'vite-plugin-pwa';
 import viteCompression from 'vite-plugin-compression';
-import federation from "@originjs/vite-plugin-federation";
+import federation from '@originjs/vite-plugin-federation';
 
 import manifest from './manifest.json';
 // import { dependencies } from './package.json';
-
 
 // function renderChunks(deps: Record<string, string>) {
 //   let chunks = {};
@@ -32,35 +31,31 @@ export default defineConfig({
       // switch to "true" to enable sw on development
       devOptions: {
         //@ts-ignore
-        enabled: process.env.NODE_ENV !== 'production', 
+        enabled: process.env.NODE_ENV !== 'production',
       },
       workbox: {
         maximumFileSizeToCacheInBytes: 3000000,
         globPatterns: ['**/*.{js,css,html}', '**/*.{svg,png,jpg,gif}'],
-        globIgnores: [
-          "**/node_modules/**/*",
-          "sw.js",
-          "workbox-*.js"
-        ]
+        globIgnores: ['**/node_modules/**/*', 'sw.js', 'workbox-*.js'],
       },
     }),
     viteCompression({
       algorithm: 'brotliCompress',
     }),
     federation({
-      name: "app",
+      name: 'app',
       remotes: [
         {
           remoteApp: {
             external: 'https://pbcustom.netlify.app/assets/remoteEntry.js',
             from: 'vite',
-            externalType: 'url'
+            externalType: 'url',
           },
         },
       ],
-      shared: ["react", "react-dom", "@react-three/drei", "@react-three/fiber"],
+      shared: ['react', 'react-dom', '@react-three/drei', '@react-three/fiber'],
     }),
-    macrosPlugin()
+    macrosPlugin(),
   ],
   resolve: {
     alias: {
@@ -86,6 +81,6 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
-    css: true
-  }
-})
+    css: true,
+  },
+});
